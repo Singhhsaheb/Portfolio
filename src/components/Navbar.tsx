@@ -32,8 +32,8 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-transparent",
-        isScrolled ? "glass border-white/10 py-4" : "bg-transparent py-6"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        isScrolled ? "glass bg-black/80 backdrop-blur-xl border-white/10 py-4 shadow-xl shadow-black/50" : "bg-transparent border-transparent py-6"
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">

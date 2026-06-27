@@ -78,7 +78,7 @@ export default function ContactSection() {
           >
             <form action="https://api.web3forms.com/submit" method="POST" className="glass-card p-8 rounded-3xl space-y-6">
               {/* Replace with your actual Web3Forms Access Key */}
-              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
+              <input type="hidden" name="access_key" value="c1ec0646-7fb0-4cf6-8504-aaef10d62c78" />
               
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
