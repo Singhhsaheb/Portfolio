@@ -1,10 +1,40 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function ContactSection() {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending...");
+    
+    const formData = new FormData(event.currentTarget);
+    formData.append("access_key", "c1ec0646-7fb0-4cf6-8504-aaef10d62c78");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Message Sent Successfully!");
+        event.currentTarget.reset();
+        setTimeout(() => setResult(""), 5000); // Clear message after 5 seconds
+      } else {
+        setResult("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setResult("Error sending message. Please try again.");
+    }
+  };
+
   return (
     <section id="contact" className="py-24 relative z-10">
       <div className="container mx-auto px-6 md:px-12">
@@ -76,9 +106,7 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form action="https://api.web3forms.com/submit" method="POST" className="glass-card p-8 rounded-3xl space-y-6">
-              {/* Replace with your actual Web3Forms Access Key */}
-              <input type="hidden" name="access_key" value="c1ec0646-7fb0-4cf6-8504-aaef10d62c78" />
+            <form onSubmit={onSubmit} className="glass-card p-8 rounded-3xl space-y-6">
               
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
@@ -115,11 +143,19 @@ export default function ContactSection() {
               </div>
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-bold flex items-center justify-center space-x-2 hover:opacity-90 transition-opacity"
+                disabled={result === "Sending..."}
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-bold flex items-center justify-center space-x-2 hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                <span>Send Message</span>
-                <Send size={18} />
+                <span>{result === "Sending..." ? "Sending..." : "Send Message"}</span>
+                {result !== "Sending..." && <Send size={18} />}
               </button>
+              
+              {result && (
+                <div className={`mt-4 p-4 rounded-xl flex items-center justify-center space-x-2 ${result.includes("Successfully") ? "bg-green-500/20 text-green-400 border border-green-500/50" : "bg-red-500/20 text-red-400 border border-red-500/50"}`}>
+                  {result.includes("Successfully") && <CheckCircle size={18} />}
+                  <span className="font-medium">{result}</span>
+                </div>
+              )}
             </form>
           </motion.div>
         </div>
