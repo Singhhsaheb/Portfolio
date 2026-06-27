@@ -11,17 +11,21 @@ export default function ContactSection() {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setResult("Sending...");
-
+    
     const formData = new FormData(event.currentTarget);
     formData.append("access_key", "c1ec0646-7fb0-4cf6-8504-aaef10d62c78");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: formData
+        body: json
       });
 
       const data = await response.json();
@@ -31,7 +35,7 @@ export default function ContactSection() {
         event.currentTarget.reset();
         setTimeout(() => setResult(""), 5000); // Clear message after 5 seconds
       } else {
-        setResult("Something went wrong. Please try again.");
+        setResult(data.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
       setResult("Error sending message. Please try again.");
