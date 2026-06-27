@@ -12,7 +12,8 @@ export default function ContactSection() {
     event.preventDefault();
     setResult("Sending...");
     
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     formData.append("access_key", "c1ec0646-7fb0-4cf6-8504-aaef10d62c78");
 
     const object = Object.fromEntries(formData);
@@ -30,7 +31,7 @@ export default function ContactSection() {
 
       if (response.ok) {
         setResult("Message Sent Successfully!");
-        event.currentTarget.reset();
+        form.reset();
         setTimeout(() => setResult(""), 5000);
         return;
       }
@@ -42,7 +43,7 @@ export default function ContactSection() {
       // Since emails are actually being delivered but throwing local CORS/Network errors due to adblockers:
       if (error.message === "Failed to fetch" || error.name === "TypeError") {
         setResult("Message Sent Successfully!");
-        event.currentTarget.reset();
+        form.reset();
         setTimeout(() => setResult(""), 5000);
       } else {
         setResult(error.message || "Error sending message. Please try again.");
