@@ -11,13 +11,16 @@ export default function ContactSection() {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setResult("Sending...");
-    
+
     const formData = new FormData(event.currentTarget);
     formData.append("access_key", "c1ec0646-7fb0-4cf6-8504-aaef10d62c78");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
+        headers: {
+          "Accept": "application/json"
+        },
         body: formData
       });
 
@@ -107,7 +110,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
           >
             <form onSubmit={onSubmit} className="glass-card p-8 rounded-3xl space-y-6">
-              
+
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
                 <input
@@ -149,7 +152,7 @@ export default function ContactSection() {
                 <span>{result === "Sending..." ? "Sending..." : "Send Message"}</span>
                 {result !== "Sending..." && <Send size={18} />}
               </button>
-              
+
               {result && (
                 <div className={`mt-4 p-4 rounded-xl flex items-center justify-center space-x-2 ${result.includes("Successfully") ? "bg-green-500/20 text-green-400 border border-green-500/50" : "bg-red-500/20 text-red-400 border border-red-500/50"}`}>
                   {result.includes("Successfully") && <CheckCircle size={18} />}
