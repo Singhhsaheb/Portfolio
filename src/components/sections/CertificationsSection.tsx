@@ -45,7 +45,7 @@ const certifications = [
     issuer: "IBM Developer Skills Network",
     date: "Sept 2025",
     link: "https://courses.etrain.skillsnetwork.site/certificates/8fcc57797a3345faa40813965dba69ac",
-    image: ""
+    image: "/certificates/python.jpg"
   },
   {
     title: "Generative AI: The Evolution of Thoughtful Online Search",
