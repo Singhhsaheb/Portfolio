@@ -8,11 +8,13 @@ const recognitions = [
     title: "XR Creator Hackathon Winner",
     image: "/xr-hackathon.jpg",
     description: "Securing the top position at Parul University's XR Hackathon.",
+    objectPosition: "center",
   },
   {
     title: "Placement Coordinator",
     image: "/placement-coordinator.jpg",
     description: "Leading placement operations and coordinating with top recruiters.",
+    objectPosition: "top",
   },
 ];
 
@@ -48,6 +50,7 @@ export default function RecognitionSection() {
                   src={item.image}
                   alt={item.title}
                   fill
+                  style={{ objectPosition: item.objectPosition }}
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
