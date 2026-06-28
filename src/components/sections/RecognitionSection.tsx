@@ -45,15 +45,22 @@ export default function RecognitionSection() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="glass-card rounded-3xl overflow-hidden group hover:border-cyan-500/30 transition-colors"
             >
-              <div className="relative w-full h-64 md:h-80 overflow-hidden">
+              <div className="relative w-full h-72 md:h-96 overflow-hidden bg-black/20">
+                {/* Blurred Background */}
+                <Image
+                  src={item.image}
+                  alt={item.title + " background"}
+                  fill
+                  className="object-cover opacity-40 blur-xl scale-110"
+                />
+                {/* Main Contained Image */}
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  style={{ objectPosition: item.objectPosition }}
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                  className="object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out z-10 p-2"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-20 pointer-events-none" />
               </div>
               <div className="p-6 relative z-10">
                 <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
