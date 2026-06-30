@@ -81,11 +81,12 @@ export default function CertificationsSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col justify-between group hover:border-cyan-500/50 transition-all duration-500 overflow-hidden relative min-h-[300px]"
+              tabIndex={0}
+              className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col justify-between group hover:border-cyan-500/50 focus:border-cyan-500/50 transition-all duration-500 overflow-hidden relative min-h-[300px] cursor-pointer"
             >
               {/* Background Image on Hover */}
               {cert.image && (
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity duration-500 z-0">
                   <Image
                     src={cert.image}
                     alt={cert.title}
@@ -103,7 +104,7 @@ export default function CertificationsSection() {
               )}
 
               {/* Text Content (fades out on hover if image exists) */}
-              <div className={`relative z-10 transition-opacity duration-500 ${cert.image ? 'group-hover:opacity-0' : ''}`}>
+              <div className={`relative z-10 transition-opacity duration-500 ${cert.image ? 'group-hover:opacity-0 group-focus:opacity-0 group-active:opacity-0' : ''}`}>
                 <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-4 text-cyan-400 group-hover:scale-110 transition-transform">
                   <Award size={24} />
                 </div>

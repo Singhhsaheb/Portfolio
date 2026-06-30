@@ -53,11 +53,12 @@ export default function AchievementsSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center group hover:border-cyan-500/50 transition-all duration-500 overflow-hidden relative min-h-[280px]"
+                tabIndex={0}
+                className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center group hover:border-cyan-500/50 focus:border-cyan-500/50 transition-all duration-500 overflow-hidden relative min-h-[280px] cursor-pointer"
               >
                 {/* Background Image on Hover */}
                 {item.image && (
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity duration-500 z-0">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -75,7 +76,7 @@ export default function AchievementsSection() {
                 )}
 
                 {/* Text Content */}
-                <div className={`relative z-10 flex flex-col items-center transition-opacity duration-500 w-full h-full ${item.image ? 'group-hover:opacity-0' : ''}`}>
+                <div className={`relative z-10 flex flex-col items-center transition-opacity duration-500 w-full h-full ${item.image ? 'group-hover:opacity-0 group-focus:opacity-0 group-active:opacity-0' : ''}`}>
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shrink-0">
                     <Icon className="text-cyan-400" size={32} />
                   </div>
