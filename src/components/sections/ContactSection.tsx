@@ -78,19 +78,10 @@ export default function ContactSection() {
           >
             <h3 className="text-2xl font-bold text-white mb-6">Let&apos;s talk about everything!</h3>
             <p className="text-gray-400 mb-8 leading-relaxed">
-              Don&apos;t like forms? Send me an email. I&apos;m currently open to new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
+              I&apos;m currently open to new opportunities, my inbox is always open. Whether you have a question or just want to say hi, drop a message and I&apos;ll try my best to get back to you!
             </p>
 
             <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-purple-400">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-300">Email</h4>
-                  <a href="mailto:Kumarsonu1082006@gmail.com" className="text-white hover:text-cyan-400 transition-colors">Kumarsonu1082006@gmail.com</a>
-                </div>
-              </div>
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-purple-400">
                   <MapPin size={20} />
