@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { label: "CGPA", value: "7.19" },
+  { label: "CGPA", value: "7.38" },
   { label: "LeetCode", value: "350+" },
   { label: "Hackathons", value: "5+" },
   { label: "Placements Managed", value: "150+" },

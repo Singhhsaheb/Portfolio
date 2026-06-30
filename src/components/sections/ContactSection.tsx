@@ -132,7 +132,7 @@ export default function ContactSection() {
                   name="name"
                   required
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
-                  placeholder="John Doe"
+                  placeholder="Seenu"
                 />
               </div>
               <div>
@@ -143,7 +143,7 @@ export default function ContactSection() {
                   name="email"
                   required
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
-                  placeholder="john@example.com"
+                  placeholder="seenu@example.com"
                 />
               </div>
               <div>
@@ -154,7 +154,7 @@ export default function ContactSection() {
                   rows={4}
                   required
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors resize-none"
-                  placeholder="How can I help you?"
+                  placeholder="Hope You're doing Well!!"
                 />
               </div>
               <button
