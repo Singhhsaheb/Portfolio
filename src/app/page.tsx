@@ -29,7 +29,6 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative z-10 border-t border-white/10 py-8 text-center text-gray-500 text-sm glass">
         <p>© {new Date().getFullYear()} Sonu Kumar. All rights reserved.</p>
-        <p className="mt-2">Built with Next.js, Tailwind CSS & Framer Motion</p>
       </footer>
     </main>
   );
