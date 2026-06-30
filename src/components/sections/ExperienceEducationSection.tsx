@@ -22,7 +22,7 @@ const education = [
     institution: "Parul University",
     date: "Jul 2024 – May 2028",
     details: [
-      "CGPA: 7.19/10",
+      "CGPA: 7.38/10 | SGPA: 7.87/10",
       "Relevant Coursework: DSA, DBMS, OOP, Operating Systems, Computer Networks.",
     ],
   },
